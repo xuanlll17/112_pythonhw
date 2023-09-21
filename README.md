@@ -5,3 +5,5 @@
 [數值計算與資料輸入](https://github.com/xuanlll17/112_pythonhw/blob/main/0911_%E4%BD%9C%E6%A5%AD/%E6%95%B8%E5%80%BC%E8%A8%88%E7%AE%97%E8%88%87%E8%B3%87%E6%96%99%E8%BC%B8%E5%85%A5.ipynb)
 
 > 0918作業 [作業](https://github.com/xuanlll17/112_pythonhw/blob/main/0918_%E4%BD%9C%E6%A5%AD/%E4%BD%9C%E6%A5%AD.ipynb)
+
+> 0920作業 [作業](https://github.com/xuanlll17/112_pythonhw/blob/main/0920_%E4%BD%9C%E6%A5%AD/%E4%BD%9C%E6%A5%AD_0920.ipynb)
