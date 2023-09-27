@@ -9,3 +9,5 @@
 > 0920作業 [條件判斷if](https://github.com/xuanlll17/112_pythonhw/blob/main/0920_%E4%BD%9C%E6%A5%AD/%E4%BD%9C%E6%A5%AD_0920.ipynb)
 
 > 0922作業 [因數 質數判斷 | 猜數字遊戲](https://github.com/xuanlll17/112_pythonhw/blob/main/0922_%E4%BD%9C%E6%A5%AD/0922_%E4%BD%9C%E6%A5%AD.ipynb)
+
+> 0926作業 [擲骰子](https://github.com/xuanlll17/112_pythonhw/blob/main/0926_%E4%BD%9C%E6%A5%AD/0926_%E4%BD%9C%E6%A5%AD.ipynb)
