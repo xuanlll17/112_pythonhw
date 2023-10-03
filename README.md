@@ -14,4 +14,5 @@
 
 > 0928作業 [擲骰子](https://github.com/xuanlll17/112_pythonhw/blob/main/0928_%E4%BD%9C%E6%A5%AD/0928_%E4%BD%9C%E6%A5%AD.ipynb)
 
-> 1003作業 [作業](https://website-e2w8.onrender.com)
+> 1003作業 [靜態](https://website-e2w8.onrender.com)
+[動態](https://flaskweb-835g.onrender.com)
