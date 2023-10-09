@@ -16,3 +16,5 @@
 
 > 1003作業 [靜態](https://website-e2w8.onrender.com/)
 [動態](https://flaskwebhw.onrender.com/)
+
+> 1005作業 [檔案](https://github.com/xuanlll17/112_pythonhw/blob/main/1005_%E4%BD%9C%E6%A5%AD/1005_%E4%BD%9C%E6%A5%AD.ipynb)
