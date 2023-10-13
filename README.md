@@ -20,3 +20,5 @@
 > 1005作業 [檔案](https://github.com/xuanlll17/112_pythonhw/blob/main/1005_%E4%BD%9C%E6%A5%AD/1005_%E4%BD%9C%E6%A5%AD.ipynb)
 
 > 1011作業 [整合line使用](https://github.com/xuanlll17/112_pythonhw/blob/main/1011_%E4%BD%9C%E6%A5%AD/1011_%E4%BD%9C%E6%A5%AD.ipynb)
+
+> 1012作業 [line_bot](https://github.com/xuanlll17/line_bot) 
