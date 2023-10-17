@@ -4,15 +4,16 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter.simpledialog import Dialog
 import csv
+import yfinance as yf
 
-
+#Window----------------------------------------------------------------------------------
 class Window(tk.Tk):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)        
         self.title("台積電股價")
         self.myFrame = MyFrame(self,"台積電2023-01-01-2023-10-17")
 
-
+#Frame-----------------------------------------------------------------------------------
 class MyFrame(tk.LabelFrame):
     def __init__(self,master,title,**kwargs):
         super().__init__(master,text=title,**kwargs)
@@ -33,7 +34,8 @@ class MyFrame(tk.LabelFrame):
         self.tree.configure(yscrollcommand=self.scrollbar.set)
         
         #insert data---------------------------------------------------------------------
-        
+        data = yf.download("2330.TW", start='2023-01-01')
+        data.to_csv('台積電.csv')
         
         with open('台積電.csv') as f:
             reader = csv.DictReader(f, delimiter=',')
@@ -61,8 +63,9 @@ class MyFrame(tk.LabelFrame):
         print(values[0],values[1],values[2],values[3],values[4],values[5],values[6])
         dialog = GetdataInfo(self,values)
 
+#Dialog-----------------------------------------------------------------------------------
 class GetdataInfo(Dialog):
-    def __init__(self, master, values,**kwargs):
+    def __init__(self, master, values,**kwargs): 
         self.values = values
         super().__init__(master,**kwargs)
 
@@ -85,9 +88,7 @@ class GetdataInfo(Dialog):
         tk.Label(master, text=self.values[6]).grid(row=6,column=1, sticky=tk.E)
 
     def buttonbox(self):
-
         box = tk.Frame(self)
-
         w = tk.Button(box, text="確認", width=10, command=self.ok, default=tk.ACTIVE)
         w.pack(side=tk.LEFT, padx=5, pady=5)
         w = tk.Button(box, text="取消", width=10, command=self.cancel)
