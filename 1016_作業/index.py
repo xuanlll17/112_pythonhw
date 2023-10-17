@@ -59,9 +59,9 @@ class MyFrame(tk.LabelFrame):
         
         item_id = self.tree.selection()[0]
         item_dict = self.tree.item(item_id)
-        values = item_dict['values']
-        print(values[0],values[1],values[2],values[3],values[4],values[5],values[6])
-        dialog = GetdataInfo(self,values)
+        value = item_dict['values']
+        print(value[0],value[1],value[2],value[3],value[4],value[5],value[6])
+        dialog = GetdataInfo(self,values=value)
 
 #Dialog-----------------------------------------------------------------------------------
 class GetdataInfo(Dialog):
