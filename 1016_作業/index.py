@@ -24,23 +24,26 @@ class GetdataInfo(Dialog):
         tk.Label(master, text='Close:').grid(row=4, sticky=tk.W)
         tk.Label(master, text='AdjClose:').grid(row=5, sticky=tk.W)
         tk.Label(master, text='Volume:').grid(row=6, sticky=tk.W)
-        
-        self.Datevar = tk.StringVar()
-        tk.Label(master, textvariable=self.Datevar).grid( row=0,column=1, sticky=tk.E)
-        self.Openvar = tk.StringVar()
-        tk.Label(master, textvariable=self.Openvar).grid( row=1,column=1, sticky=tk.E)
-        self.Highvar = tk.StringVar()
-        tk.Label(master, textvariable=self.Highvar).grid( row=2,column=1, sticky=tk.E)
-        self.Lowvar = tk.StringVar()
-        tk.Label(master, textvariable=self.Lowvar).grid( row=3,column=1, sticky=tk.E)
-        self.Closevar = tk.StringVar()
-        tk.Label(master, textvariable=self.Closevar).grid( row=4,column=1, sticky=tk.E)
-        self.AdjClosevar = tk.StringVar()
-        tk.Label(master, textvariable=self.AdjClosevar).grid( row=5,column=1, sticky=tk.E)
-        self.Volumevar = tk.StringVar()
-        tk.Label(master, textvariable=self.Volumevar).grid( row=6,column=1, sticky=tk.E)
 
+        self.date = tk.Entry(master, width=16, state='disabled')
+        self.open = tk.Entry(master, width=16, state='disabled')
+        self.high = tk.Entry(master, width=16, state='disabled')
+        self.low = tk.Entry(master, width=16, state='disabled')
+        self.close = tk.Entry(master, width=16, state='disabled')
+        self.adjclose = tk.Entry(master, width=16, state='disabled')
+        self.volume = tk.Entry(master, width=16, state='disabled')
+
+        self.date.grid(row=0, column=1, sticky=tk.W)
+        self.open.grid(row=1, column=1, sticky=tk.W)
+        self.high.grid(row=2, column=1, sticky=tk.W)
+        self.low.grid(row=3, column=1, sticky=tk.W)
+        self.close.grid(row=4, column=1, sticky=tk.W)
+        self.adjclose.grid(row=5, column=1, sticky=tk.W)
+        self.volume.grid(row=6, column=1, sticky=tk.W)
+     
         
+
+
     def buttonbox(self):
         '''add standard button box.
 
@@ -103,8 +106,8 @@ class MyFrame(tk.LabelFrame):
         value = item_dict['values']
         print(value[0],value[1],value[2],value[3],value[4],value[5],value[6])
         dialog = GetdataInfo(self)
-        dialog.Datevar.set(value=value[0])
-        dialog.Openvar.set(value=value[1])
+        dialog.Datevar.get(value=value[0])
+        dialog.Openvar.get(value=value[1])
         
 
 def main():    
