@@ -41,16 +41,6 @@ class GetdataInfo(Dialog):
         tk.Label(master, textvariable=self.Volumevar).grid( row=6,column=1, sticky=tk.E)
 
         
-       
-        
-        
-        
-        
-      
-
-
-       
-    
     def buttonbox(self):
         '''add standard button box.
 
@@ -73,6 +63,7 @@ class MyFrame(tk.LabelFrame):
     def __init__(self,master,title,**kwargs):
         super().__init__(master,text=title,**kwargs)
 
+        #self.tree-------------------------------------------------------------
         self.tree = ttk.Treeview(self,columns=['#1', '#2', '#3', '#4', '#5', '#6', '#7'],show="headings")
         self.tree.heading('#1', text="Date")
         self.tree.heading('#2', text="Open")
@@ -81,14 +72,13 @@ class MyFrame(tk.LabelFrame):
         self.tree.heading('#5', text="Close")
         self.tree.heading('#6', text="AdjClose")
         self.tree.heading('#7', text="Volume")
-        
+    
+        #scrollbar--------------------------------------------------------------
         self.scrollbar = ttk.Scrollbar(master, orient="vertical", command=self.tree.yview)
-        
         self.scrollbar.pack(side='right',fill='y')
-        self.pack(expand=1,fill='both',padx=10,pady=10)
-        
         self.tree.configure(yscrollcommand=self.scrollbar.set)
         
+        #insert data------------------------------------------------------------
         with open('台積電.csv') as f:
             reader = csv.DictReader(f, delimiter=',')
             for row in reader:
@@ -101,8 +91,10 @@ class MyFrame(tk.LabelFrame):
                 Volume = row['Volume']
                 self.tree.insert('',tk.END,value=(Date, Open, High, Low, Close, AdjClose, Volume))
         
+        self.pack(expand=1,fill='both',padx=10,pady=10)
         self.tree.pack()
 
+        #bind--------------------------------------------------------------------
         self.tree.bind('<<TreeviewSelect>>',self.item_selected)
      
     def item_selected(self,event):
