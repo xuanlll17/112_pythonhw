@@ -5,7 +5,7 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter.simpledialog import Dialog
 import csv
-import yfinance
+
 
 class Window(tk.Tk):
     def __init__(self,**kwargs):
@@ -24,20 +24,29 @@ class GetdataInfo(Dialog):
         tk.Label(master, text='Close:').grid(row=4, sticky=tk.W)
         tk.Label(master, text='AdjClose:').grid(row=5, sticky=tk.W)
         tk.Label(master, text='Volume:').grid(row=6, sticky=tk.W)
-        #self.Datevar = tk.StringVar()
-        #tk.Label(master, textvariable=self.Datevar).grid(column=1, row=0, sticky=tk.E)
-        #self.Openvar = tk.StringVar()
-        #tk.Label(master, textvariable=self.Openvar).grid(column=1, row=1, sticky=tk.E)
-        #self.Highvar = tk.StringVar()
-        #tk.Label(master, textvariable=self.Highvar).grid(column=1, row=2, sticky=tk.E)
-        #self.Lowvar = tk.StringVar()
-        #tk.Label(master, textvariable=self.Lowvar).grid(column=1, row=3, sticky=tk.E)
-        #self.Closevar = tk.StringVar()
-        #tk.Label(master, textvariable=self.Closevar).grid(column=1, row=4, sticky=tk.E)
-        #self.AdjClosevar = tk.StringVar()
-        #tk.Label(master, textvariable=self.AdjClosevar).grid(column=1, row=5, sticky=tk.E)
-        #self.Volumevar = tk.StringVar()
-        #tk.Label(master, textvariable=self.Volumevar).grid(column=1, row=6, sticky=tk.E)
+        
+        self.Datevar = tk.StringVar()
+        tk.Label(master, textvariable=self.Datevar).grid( row=0,column=1, sticky=tk.E)
+        self.Openvar = tk.StringVar()
+        tk.Label(master, textvariable=self.Openvar).grid( row=1,column=1, sticky=tk.E)
+        self.Highvar = tk.StringVar()
+        tk.Label(master, textvariable=self.Highvar).grid( row=2,column=1, sticky=tk.E)
+        self.Lowvar = tk.StringVar()
+        tk.Label(master, textvariable=self.Lowvar).grid( row=3,column=1, sticky=tk.E)
+        self.Closevar = tk.StringVar()
+        tk.Label(master, textvariable=self.Closevar).grid( row=4,column=1, sticky=tk.E)
+        self.AdjClosevar = tk.StringVar()
+        tk.Label(master, textvariable=self.AdjClosevar).grid( row=5,column=1, sticky=tk.E)
+        self.Volumevar = tk.StringVar()
+        tk.Label(master, textvariable=self.Volumevar).grid( row=6,column=1, sticky=tk.E)
+
+        
+       
+        
+        
+        
+        
+      
 
 
        
@@ -99,10 +108,11 @@ class MyFrame(tk.LabelFrame):
     def item_selected(self,event):
         item_id = self.tree.selection()[0]
         item_dict = self.tree.item(item_id)
-        print(item_dict['values'])
+        value = item_dict['values']
+        print(value[0],value[1],value[2],value[3],value[4],value[5],value[6])
         dialog = GetdataInfo(self)
-        #dialog.Datevar.set(item_dict['values'][0])
-        #dialog.Openvar.set(item_dict['values'][1])
+        dialog.Datevar.set(value=value[0])
+        dialog.Openvar.set(value=value[1])
         
 
 def main():    
