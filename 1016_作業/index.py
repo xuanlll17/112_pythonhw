@@ -15,7 +15,7 @@ class Window(tk.Tk):
 class GetdataInfo(Dialog):
 
     def body(self, master):
-        self.title("查看詳情")
+        self.title("查看")
 
         tk.Label(master, text='Date:').grid(row=0, sticky=tk.W)
         tk.Label(master, text='Open:').grid(row=1, sticky=tk.W)
