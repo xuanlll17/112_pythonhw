@@ -12,51 +12,6 @@ class Window(tk.Tk):
         super().__init__(**kwargs)        
         self.title("台積電股價")
 
-class GetdataInfo(Dialog):
-
-    def body(self, master):
-        self.title("查看")
-
-        tk.Label(master, text='Date:').grid(row=0, sticky=tk.W)
-        tk.Label(master, text='Open:').grid(row=1, sticky=tk.W)
-        tk.Label(master, text='High:').grid(row=2, sticky=tk.W)
-        tk.Label(master, text='Low:').grid(row=3, sticky=tk.W)
-        tk.Label(master, text='Close:').grid(row=4, sticky=tk.W)
-        tk.Label(master, text='AdjClose:').grid(row=5, sticky=tk.W)
-        tk.Label(master, text='Volume:').grid(row=6, sticky=tk.W)
-
-
-        self.datevar = tk.StringVar()
-        self.openvar = tk.StringVar()
-        self.highvar = tk.StringVar()
-        self.lowvar = tk.StringVar()
-        self.closevar = tk.StringVar()
-        self.adjclosevar = tk.StringVar()
-        self.volumevar = tk.StringVar()
-
-        tk.Label(master, textvariable=self.datevar).grid(row=0,column=1, sticky=tk.E)
-        tk.Label(master, textvariable=self.openvar).grid(row=1,column=1, sticky=tk.E)
-        tk.Label(master, textvariable=self.highvar).grid(row=2,column=1, sticky=tk.E)
-        tk.Label(master, textvariable=self.lowvar).grid(row=3,column=1, sticky=tk.E)
-        tk.Label(master, textvariable=self.closevar).grid(row=4,column=1, sticky=tk.E)
-        tk.Label(master, textvariable=self.adjclosevar).grid(row=5,column=1, sticky=tk.E)
-        tk.Label(master, textvariable=self.volumevar).grid(row=6,column=1, sticky=tk.E)
-        
-
-    def buttonbox(self):
-
-        box = tk.Frame(self)
-
-        w = tk.Button(box, text="確認", width=10, command=self.ok, default=tk.ACTIVE)
-        w.pack(side=tk.LEFT, padx=5, pady=5)
-        w = tk.Button(box, text="取消", width=10, command=self.cancel)
-        w.pack(side=tk.LEFT, padx=5, pady=5)
-
-        self.bind("<Return>", self.ok)
-        self.bind("<Escape>", self.cancel)
-
-        box.pack()
-
 
 class MyFrame(tk.LabelFrame):
     def __init__(self,master,title,**kwargs):
@@ -97,14 +52,48 @@ class MyFrame(tk.LabelFrame):
         self.tree.bind('<<TreeviewSelect>>',self.item_selected)
      
     def item_selected(self,event):
+        
         item_id = self.tree.selection()[0]
         item_dict = self.tree.item(item_id)
-        value = item_dict['values']
-        print(value[0],value[1],value[2],value[3],value[4],value[5],value[6])
+        values = item_dict['values']
+        print(values[0],values[1],values[2],values[3],values[4],values[5],values[6])
+        
+        class GetdataInfo(Dialog):
+
+            def body(self, master):
+                self.title("查看")
+
+                tk.Label(master, text='Date:').grid(row=0, sticky=tk.W)
+                tk.Label(master, text='Open:').grid(row=1, sticky=tk.W)
+                tk.Label(master, text='High:').grid(row=2, sticky=tk.W)
+                tk.Label(master, text='Low:').grid(row=3, sticky=tk.W)
+                tk.Label(master, text='Close:').grid(row=4, sticky=tk.W)
+                tk.Label(master, text='AdjClose:').grid(row=5, sticky=tk.W)
+                tk.Label(master, text='Volume:').grid(row=6, sticky=tk.W)
+                tk.Label(master, text=values[0]).grid(row=0,column=1, sticky=tk.E)
+                tk.Label(master, text=values[1]).grid(row=1,column=1, sticky=tk.E)
+                tk.Label(master, text=values[2]).grid(row=2,column=1, sticky=tk.E)
+                tk.Label(master, text=values[3]).grid(row=3,column=1, sticky=tk.E)
+                tk.Label(master, text=values[4]).grid(row=4,column=1, sticky=tk.E)
+                tk.Label(master, text=values[5]).grid(row=5,column=1, sticky=tk.E)
+                tk.Label(master, text=values[6]).grid(row=6,column=1, sticky=tk.E)
+
+            def buttonbox(self):
+
+                box = tk.Frame(self)
+
+                w = tk.Button(box, text="確認", width=10, command=self.ok, default=tk.ACTIVE)
+                w.pack(side=tk.LEFT, padx=5, pady=5)
+                w = tk.Button(box, text="取消", width=10, command=self.cancel)
+                w.pack(side=tk.LEFT, padx=5, pady=5)
+
+                self.bind("<Return>", self.ok)
+                self.bind("<Escape>", self.cancel)
+
+                box.pack()
         
         dialog = GetdataInfo(self)
-        dialog.datevar.set(value[0])
-        dialog.openvar.set(value[1])
+       
         
 
 def main():    
