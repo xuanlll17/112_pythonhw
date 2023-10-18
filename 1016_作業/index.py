@@ -62,6 +62,7 @@ class MyFrame(tk.LabelFrame):
         value = item_dict['values']
         print(value[0],value[1],value[2],value[3],value[4],value[5],value[6])
         dialog = GetdataInfo(self,values=value)
+        #self.dialog
 
 #Dialog-----------------------------------------------------------------------------------
 class GetdataInfo(Dialog):
