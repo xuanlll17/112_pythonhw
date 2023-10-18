@@ -29,7 +29,7 @@ class MyFrame(tk.LabelFrame):
         self.tree.heading('#7', text="Volume")
     
         #scrollbar-----------------------------------------------------------------------
-        self.scrollbar = ttk.Scrollbar(master, orient="vertical", command=self.tree.yview)
+        self.scrollbar = ttk.Scrollbar(master, orient="vertical", command=self.tree.yview) #master/self
         self.scrollbar.pack(side='right',fill='y')
         self.tree.configure(yscrollcommand=self.scrollbar.set)
         
