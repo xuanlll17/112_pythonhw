@@ -11,7 +11,7 @@ class Window(tk.Tk):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)        
         self.title("台積電股價")
-        self.myFrame = MyFrame(self,"台積電2023-01-01-2023-10-18")
+        #self.myFrame = MyFrame(self,"台積電2023-01-01-2023-10-18")
 
 #Frame-----------------------------------------------------------------------------------
 class MyFrame(tk.LabelFrame):
@@ -104,6 +104,7 @@ class GetdataInfo(Dialog):
 
 def main():    
     window = Window()
+    myframe = MyFrame(window, "台積電2023-01-01-2023-10-18")
     window.mainloop()
 
 if __name__ == "__main__":
