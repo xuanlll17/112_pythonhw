@@ -38,7 +38,7 @@ class MyFrame(tk.LabelFrame):
         data.to_csv('台積電.csv')
         
         with open('台積電.csv') as f:
-            reader = csv.DictReader(f, delimiter=',')
+            reader = csv.DictReader(f)
             for row in reader:
                 Date = row['Date']
                 Open = row['Open']
