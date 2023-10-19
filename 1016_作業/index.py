@@ -13,7 +13,7 @@ class Window(tk.Tk):
         self.title("台積電股價")
         #self.myFrame = MyFrame(self,"台積電2023-01-01-2023-10-18")
 
-#Dialog-----------------------------------------------------------------------------------
+#Dialog----------------------------------------------------------------------------------
 class GetdataInfo(Dialog):
     def __init__(self, master, values,**kwargs): 
         self.values = values
