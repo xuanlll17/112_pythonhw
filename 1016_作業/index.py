@@ -104,7 +104,7 @@ class MyFrame(tk.LabelFrame):
 
 def main():    
     window = Window()
-    myframe = MyFrame(window, "台積電2023-01-01-2023-10-18")
+    myframe = MyFrame(window, "台積電")
     window.mainloop()
 
 if __name__ == "__main__":
