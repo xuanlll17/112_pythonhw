@@ -4,14 +4,14 @@ from tkinter import messagebox
 import datasource
 from threading import Timer
 
-class Window(tk.Tk):                       #繼承tkinter裡的Tk
-    def __init__(self, **kwargs):          #keyword = kw, args = 引數
-        super().__init__(**kwargs)         #呼叫父類別的__init__, self不用寫 
+class Window(tk.Tk):                       
+    def __init__(self, **kwargs):          
+        super().__init__(**kwargs)         
         try:
             datasource.update_sqlite_data()
         except Exception as e:                     
             messagebox.showerror("錯誤",f'{e}\n將關閉應用程式\n請稍後再試')
-            self.destroy()                 #關閉視窗
+            self.destroy()                 
     
 
 t = None
