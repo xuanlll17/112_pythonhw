@@ -1,6 +1,5 @@
 import requests
 import sqlite3
-from datetime import date
 
 __all__=['update_sqlite_data']
 
