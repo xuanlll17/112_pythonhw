@@ -10,21 +10,25 @@ def __download_aqi_data()->list[dict]:
     response = requests.get(aqi_url)
     response.raise_for_status()
     print('下載成功')
-    return response.json()      #轉成python資料結構
-
-def parse_json(w):
-    location = w['records']
-    weather_list = []
-    for item in location:
-        city_item = {}
-        city_item['城市'] = item['locationName']
-        city_item['起始時間'] = item['weatherElement'][1]['time'][0]['startTime']
-        city_item['結束時間'] = item['weatherElement'][1]['time'][0]['endTime']
-        city_item['最高溫度'] = float(item['weatherElement'][1]['time'][0]['parameter']['parameterName'])
-        city_item['最低溫度'] = float(item['weatherElement'][1]['time'][0]['parameter']['parameterName'])
-        city_item['感覺'] = item['weatherElement'][3]['time'][0]['parameter']['parameterName']
-        weather_list.append(city_item)
-    return weather_list
+    data = response.json()
+    records = data.get("records",[])
+    record_list = []
+    for record in records:
+        record_dict = {
+            "siteid": record['siteid'],
+            "sitename": record["sitename"],
+            "siteengname": record["siteengname"],
+            "areaname": record['areaname'],
+            "county": record['county'],
+            "township": record['township'],
+            "siteaddress": record['siteaddress'],
+            "twd97lon": record['twd97lon'],
+            "twd97lat": record['twd97lat'],
+            "sitetype": record['sitetype']
+        }
+        record_list.append(record_dict)
+        #print(record_list)
+    return record_list
 
 
 #create sql table--------------------------------------------------------------
@@ -34,11 +38,11 @@ def __create_table(conn:sqlite3.Connection):
         '''
 		CREATE TABLE IF NOT EXISTS 空氣品質(
             "id" INTEGER,
-			"測站編號"	INTEGER,
+            "測站編號" INTEGER,	
 			"測站名稱"	TEXT NOT NULL,
             "測站英文名稱"	TEXT NOT NULL,
 			"空品區"	TEXT NOT NULL,
-			"更新時間"	TEXT DEFAULT CURRENT_TIMESTAMP,
+			"更新時間" DATETIME DEFAULT (DATETIME('now')),
 			"城市"	TEXT NOT NULL,
             "鄉鎮"	TEXT NOT NULL,
             "測站地址"	TEXT NOT NULL,
@@ -69,5 +73,5 @@ def update_sqlite_data()->None:
     __create_table(conn)
     for item in data:
         print(item)
-        __insert_data(conn,values=[item['siteid'],item['sitename'],item['siteengname'],item['areaname'],item['tot'],item['county'],item['township'],item['siteaddress'],item['twd97lon'],item['twd97lat'],item['sitetype']])
+        __insert_data(conn,values=[item['siteid'],item['sitename'], item['siteengname'], item['areaname'], item['county'], item['township'], item['siteaddress'], item['twd97lon'], item['twd97lat'], item['sitetype']])
     conn.close()
