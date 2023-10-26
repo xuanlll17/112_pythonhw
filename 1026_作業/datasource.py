@@ -1,5 +1,6 @@
 import requests
 import sqlite3
+from datetime import datetime
 
 __all__=['update_sqlite_data']
 
@@ -41,13 +42,13 @@ def __create_table(conn:sqlite3.Connection):
 			"測站名稱"	TEXT NOT NULL,
             "測站英文名稱"	TEXT NOT NULL,
 			"空品區"	TEXT NOT NULL,
-			"更新時間" DATETIME DEFAULT (DATETIME('now')),
 			"城市"	TEXT NOT NULL,
             "鄉鎮"	TEXT NOT NULL,
             "測站地址"	TEXT NOT NULL,
 			"經度"	INTEGER,
 			"緯度"	INTEGER,
 			"測站類型"	TEXT NOT NULL,
+            "更新時間" TEXT NOT NULL,
 			PRIMARY KEY("id" AUTOINCREMENT),
             UNIQUE(測站名稱,更新時間) ON CONFLICT REPLACE
 		);
@@ -58,11 +59,12 @@ def __create_table(conn:sqlite3.Connection):
 
 def __insert_data(conn:sqlite3.Connection,values:list[any])->None:
     cursor = conn.cursor()
-    #REPLACE 沒有重建一筆(insert),有就更新
+    current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     sql = '''
-		REPLACE INTO 空氣品質(測站編號,測站名稱,測站英文名稱,空品區,城市,鄉鎮,測站地址,經度,緯度,測站類型)
-		VALUES(?,?,?,?,?,?,?,?,?,?)
+		REPLACE INTO 空氣品質(測站編號,測站名稱,測站英文名稱,空品區,城市,鄉鎮,測站地址,經度,緯度,測站類型,更新時間)
+		VALUES(?,?,?,?,?,?,?,?,?,?,?)
 	'''
+    values.append(current_time) 
     cursor.execute(sql,values)
     conn.commit()
 
