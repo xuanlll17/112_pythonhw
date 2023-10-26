@@ -72,6 +72,6 @@ def update_sqlite_data()->None:
     conn = sqlite3.connect("空氣品質.db")
     __create_table(conn)
     for item in data:
-        print(item)
+        #print(item)
         __insert_data(conn,values=[item['siteid'],item['sitename'], item['siteengname'], item['areaname'], item['county'], item['township'], item['siteaddress'], item['twd97lon'], item['twd97lat'], item['sitetype']])
     conn.close()

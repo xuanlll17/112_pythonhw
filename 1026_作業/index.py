@@ -10,7 +10,7 @@ class Window(tk.Tk):                       #繼承tkinter裡的Tk
         try:
             datasource.update_sqlite_data()
         except Exception as e:                     
-            messagebox.showerror(e)
+            messagebox.showerror("錯誤",f'{e}\n將關閉應用程式\n請稍後再試')
             self.destroy()                 #關閉視窗
     
 
