@@ -1,12 +1,13 @@
 import requests
 import sqlite3
 from datetime import datetime
+import key
 
 __all__=['update_sqlite_data']
 
 #download data-----------------------------------------------------------------
 def __download_aqi_data()->list[dict]:
-    aqi_url = 'https://data.moenv.gov.tw/api/v2/aqx_p_07?api_key=f1ef64e9-395c-44b2-9bf1-0b714fca448b'
+    aqi_url = f'https://data.moenv.gov.tw/api/v2/aqx_p_07?api_key={key.key}'
     response = requests.get(aqi_url)
     response.raise_for_status()
     print('下載成功')
