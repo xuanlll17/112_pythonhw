@@ -12,7 +12,7 @@ def __download_aqi_data()->list[dict]:
     response.raise_for_status()
     print('下載成功')
     data = response.json()
-    records = data.get("records",[])
+    records = data.get("records",[]) #取得dictionary中records的值,如果值存在傳回值,如果不存在傳回[]
     record_list = []
     for record in records:
         record_dict = {
