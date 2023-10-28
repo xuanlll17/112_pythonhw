@@ -73,7 +73,7 @@ def update_sqlite_data()->None:
     data = __download_aqi_data()
     conn = sqlite3.connect("空氣品質.db")
     __create_table(conn)
-    for item in data:     #for item in data['records']: -> 不用把records資料存進list在抓
+    for item in data:     #for item in data['records']: -> 不用先把records資料存進list
         #print(item)
         __insert_data(conn,values=[item['siteid'],item['sitename'], item['siteengname'], item['areaname'], item['county'], item['township'], item['siteaddress'], item['twd97lon'], item['twd97lat'], item['sitetype']])
     conn.close()
