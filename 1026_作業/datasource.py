@@ -67,7 +67,7 @@ def __insert_data(conn:sqlite3.Connection,values:list[any])->None:
 	'''
     values.append(current_time) 
     #print(values) #會先取得insert_data裡的資料再加入current_time, current_time會被加在list的最後
-    cursor.execute(sql,values) #執行sql, ? (替換)-> values
+    cursor.execute(sql,values)      #執行sql, ? (替換)-> values
     conn.commit()
 
 def update_sqlite_data()->None:
