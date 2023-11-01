@@ -35,18 +35,17 @@ class YoubikeTreeView(ttk.Treeview):
             #'end'每插入一筆到最後
             self.insert('','end',values=site)
 
-    def search(self):
+    def search(self,result):
         '''
-            更新內容
+            搜尋內容
         '''
         #清除所有內容
         for i in self.get_children():
             self.delete(i)
 
-        for site in site_datas:
+        for results in result:
             #'end'每插入一筆到最後
-            self.insert('','end',values=site)
+            self.insert('','end',values=results)
 
-    
     
    

@@ -31,10 +31,6 @@ class Window(tk.Tk):                       #繼承tkinter裡的Tk
         tk.Button(searchFrame, text="搜尋", state='active',command=self.search).grid(column=2, row=0)
         searchFrame.pack()
 
-        
-
-
-
         bottomFrame = tk.Frame(self)
 
         #-------------------------treeview----------------------------#
@@ -47,18 +43,12 @@ class Window(tk.Tk):                       #繼承tkinter裡的Tk
         self.youbikeTreeView.configure(yscrollcommand=self.scrollbar.set)
 
         bottomFrame.pack(pady=30)
-        print(datasource.search_sitename('振興'))
     
 
     def search(self):
         search_term = self.e.get()
         result = datasource.search_sitename(search_term)
-        if result:
-            for i in self.youbikeTreeView.get_children():
-                self.youbikeTreeView.delete(i)
-
-            for results in result:
-                self.youbikeTreeView.insert('','end',values=results)
+        self.youbikeTreeView.search(result = result)
 
 
 def main():
