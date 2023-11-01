@@ -3,8 +3,6 @@ import sqlite3
 
 __all__=['update_sqlite_data']
 
-#self = window實體
-
 #download data-----------------------------------------------------------------
 def __download_youbike_data()->list[dict]:
     '''
@@ -15,7 +13,7 @@ def __download_youbike_data()->list[dict]:
     response = requests.get(youbike_url)
     response.raise_for_status()
     print('下載成功')
-    return response.json()      #轉成python資料結構
+    return response.json()
 
 #create sql table--------------------------------------------------------------
 def __create_table(conn:sqlite3.Connection):
@@ -41,7 +39,6 @@ def __create_table(conn:sqlite3.Connection):
 
 
 def __insert_data(conn:sqlite3.Connection,values:list[any])->None:
-    #執行完cursor會自動關閉 #離開程式區塊會自動關閉with ... as .:
     cursor = conn.cursor()
     sql = '''
         REPLACE INTO 台北市youbike(站點名稱,行政區,更新時間,地址,總車輛數,可借,可還)
