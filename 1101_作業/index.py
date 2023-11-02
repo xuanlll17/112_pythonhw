@@ -49,7 +49,7 @@ class Window(tk.Tk):
     def search_data(self):
         search_term = self.e.get()
         result = datasource.search_sitename(search_term)
-        self.youbikeTreeView.search(result = result)
+        self.youbikeTreeView.update_content(site_datas= result)
 
 
 def main():
