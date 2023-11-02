@@ -8,7 +8,7 @@ class Window(tk.Tk):
         map_widget.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
         marker = map_widget.set_position(25.03017973701443, 121.5362208630154, marker=True)
         map_widget.set_zoom(15)
-        marker.set_text("點")
+        marker.set_text("")
         
 
 if __name__ == '__main__':
