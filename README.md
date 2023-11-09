@@ -32,3 +32,5 @@
 > 1101作業 [youbike](https://github.com/xuanlll17/112_pythonhw/blob/main/1101_%E4%BD%9C%E6%A5%AD/index.py)
 
 > 1102作業 [地圖](https://github.com/xuanlll17/112_pythonhw/blob/main/1102_%E4%BD%9C%E6%A5%AD/index.py)
+
+> 1108作業 [postgresql](https://github.com/xuanlll17/112_pythonhw/blob/main/1108_%E4%BD%9C%E6%A5%AD/1108_%E4%BD%9C%E6%A5%AD.ipynb) 
