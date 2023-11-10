@@ -8,7 +8,7 @@ class Window(tk.Tk):
     def __init__(self, **kwargs):          
         super().__init__(**kwargs)         
         try:
-            datasource.update_sqlite_data()
+            datasource.update_render_data()
         except Exception as e:                     
             messagebox.showerror("錯誤",f'{e}\n將關閉應用程式\n請稍後再試')
             self.destroy()                 
@@ -23,13 +23,13 @@ def main():
 
     
     def update_data()->None:
-        datasource.update_sqlite_data()
+        datasource.update_render_data()
         global t
-        t = Timer(3600,update_data)
+        t = Timer(36,update_data)
         t.start()  
 
     window = Window()
-    window.title('空氣品質')
+    window.title('taiwan_pm2.5')
     window.geometry('600x300')
     window.resizable(width=False,height=False)
     update_data()
