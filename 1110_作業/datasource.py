@@ -1,6 +1,6 @@
 import requests
 import psycopg2
-import password as pw
+import pw
 import key
 
 __all__=['update_sqlite_data']
