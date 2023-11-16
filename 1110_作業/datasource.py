@@ -51,7 +51,8 @@ def update_render_data()->None:
     #---------------連線到postgresql----------------#
     conn = psycopg2.connect(database=pw.DATABASE,
                                 user=pw.USER, 
-                                password=pw.PASSWORD, host=pw.HOST, 
+                                password=pw.PASSWORD,
+                                host=pw.HOST, 
                                 port="5432")
    
     __create_table(conn)
