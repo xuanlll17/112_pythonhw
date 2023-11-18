@@ -25,7 +25,7 @@ def __create_table(conn)->None:
             "縣市名稱"	TEXT NOT NULL,
             "pm25"	TEXT NOT NULL,
             "時間"	TEXT NOT NULL,
-			PRIMARY KEY("id"),
+            PRIMARY KEY("id"),
             UNIQUE(城市名稱,時間)
 		);
 		'''
@@ -37,7 +37,7 @@ def __create_table(conn)->None:
 def __insert_data(conn,values:list[any])->None:
     cursor = conn.cursor()
     sql = '''
-        INSERT INTO taiwan_pm25(城市名稱, 縣市名稱, pm25, 時間) 
+        INSERT INTO taiwan_pm25(城市名稱, 縣市名稱, pm25, 時間)
         VALUES(%s,%s,%s,%s)
         ON CONFLICT (城市名稱,時間) DO NOTHING   
     '''
