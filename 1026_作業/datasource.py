@@ -63,7 +63,7 @@ def __insert_data(conn:sqlite3.Connection,values:list[any])->None:
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')     #取得系統時間並格式化
     sql = '''
 		REPLACE INTO 空氣品質(測站編號,測站名稱,測站英文名稱,空品區,城市,鄉鎮,測站地址,經度,緯度,測站類型,更新時間)
-		VALUES(?,?,?,?,?,?,?,?,?,?,?)
+        VALUES(?,?,?,?,?,?,?,?,?,?,?)
 	'''
     values.append(current_time) 
     #print(values) #會先取得insert_data裡的資料再加入current_time, current_time會被加在list的最後
